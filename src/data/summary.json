@@ -1,0 +1,797 @@
+{
+  "metadata": {
+    "total_records": 193,
+    "years": [
+      2023,
+      2024
+    ],
+    "sub_holdings": [
+      "SH Downstream",
+      "SH Gas",
+      "SH PNRE",
+      "SH Upstream"
+    ],
+    "sub_holdings_original": [
+      "SH C&T",
+      "SH Gas",
+      "SH IML",
+      "SH PNRE",
+      "SH R&P",
+      "SH Upstream"
+    ]
+  },
+  "by_year": {
+    "2023": {
+      "total_units": 89,
+      "units_with_data": 53,
+      "area": {
+        "total_offsite_ha": null,
+        "total_overlap_ha": null,
+        "total_ha": 21284.46,
+        "units_with_area": 45
+      },
+      "location": {
+        "adjacent_yes": 10,
+        "adjacent_no": 14,
+        "adjacent_null": 65,
+        "overlapped_yes": 8,
+        "overlapped_no": 23,
+        "overlapped_null": 58,
+        "both_yes": 0
+      },
+      "biodiversity": {
+        "rendah": 4,
+        "sedang": 17,
+        "tinggi": 15,
+        "null": 53,
+        "avg_score": 2.765,
+        "min_score": 0.0,
+        "max_score": 4.131,
+        "units_with_score": 36
+      },
+      "fauna": {
+        "total_released": 3169,
+        "units_with_releases": 24,
+        "unique_species_approx": 348
+      }
+    },
+    "2024": {
+      "total_units": 104,
+      "units_with_data": 73,
+      "area": {
+        "total_offsite_ha": 92921.56,
+        "total_overlap_ha": 7672.33,
+        "total_ha": 100593.89,
+        "units_with_area": 62
+      },
+      "location": {
+        "adjacent_yes": 16,
+        "adjacent_no": 37,
+        "adjacent_null": 51,
+        "overlapped_yes": 8,
+        "overlapped_no": 4,
+        "overlapped_null": 92,
+        "both_yes": 4
+      },
+      "biodiversity": {
+        "rendah": 17,
+        "sedang": 12,
+        "tinggi": 21,
+        "null": 54,
+        "avg_score": 2.34,
+        "min_score": 0.0,
+        "max_score": 4.15,
+        "units_with_score": 50
+      },
+      "fauna": {
+        "total_released": 13939,
+        "units_with_releases": 26,
+        "unique_species_approx": 310
+      }
+    }
+  },
+  "by_subholding": {
+    "SH Downstream": {
+      "2023": {
+        "total_units": 28,
+        "units_with_data": 7,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 11790.69,
+          "units_with_area": 7
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 28,
+          "overlapped_yes": 0,
+          "overlapped_no": 7,
+          "overlapped_null": 21,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 4,
+          "tinggi": 3,
+          "null": 21,
+          "avg_score": 3.039,
+          "min_score": 2.435,
+          "max_score": 3.665,
+          "units_with_score": 7
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 132
+        }
+      },
+      "2024": {
+        "total_units": 28,
+        "units_with_data": 17,
+        "area": {
+          "total_offsite_ha": 8701.03,
+          "total_overlap_ha": 472.75,
+          "total_ha": 9173.78,
+          "units_with_area": 15
+        },
+        "location": {
+          "adjacent_yes": 1,
+          "adjacent_no": 0,
+          "adjacent_null": 27,
+          "overlapped_yes": 0,
+          "overlapped_no": 1,
+          "overlapped_null": 27,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 2,
+          "tinggi": 7,
+          "null": 19,
+          "avg_score": 3.131,
+          "min_score": 2.379,
+          "max_score": 3.497,
+          "units_with_score": 9
+        },
+        "fauna": {
+          "total_released": 1057,
+          "units_with_releases": 2,
+          "unique_species_approx": 15
+        }
+      }
+    },
+    "SH Gas": {
+      "2023": {
+        "total_units": 20,
+        "units_with_data": 8,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 81.81,
+          "units_with_area": 5
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 2,
+          "adjacent_null": 18,
+          "overlapped_yes": 0,
+          "overlapped_no": 2,
+          "overlapped_null": 18,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 2,
+          "sedang": 2,
+          "tinggi": 0,
+          "null": 16,
+          "avg_score": 1.579,
+          "min_score": 0.0,
+          "max_score": 2.815,
+          "units_with_score": 4
+        },
+        "fauna": {
+          "total_released": 42,
+          "units_with_releases": 4,
+          "unique_species_approx": 3
+        }
+      },
+      "2024": {
+        "total_units": 20,
+        "units_with_data": 0,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": null,
+          "units_with_area": 0
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 20,
+          "overlapped_yes": 0,
+          "overlapped_no": 0,
+          "overlapped_null": 20,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 20,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 0
+        }
+      }
+    },
+    "SH PNRE": {
+      "2023": {
+        "total_units": 7,
+        "units_with_data": 6,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 26.65,
+          "units_with_area": 4
+        },
+        "location": {
+          "adjacent_yes": 1,
+          "adjacent_no": 1,
+          "adjacent_null": 5,
+          "overlapped_yes": 4,
+          "overlapped_no": 2,
+          "overlapped_null": 1,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 3,
+          "tinggi": 2,
+          "null": 2,
+          "avg_score": 2.796,
+          "min_score": 2.03,
+          "max_score": 3.5,
+          "units_with_score": 5
+        },
+        "fauna": {
+          "total_released": 140,
+          "units_with_releases": 2,
+          "unique_species_approx": 3
+        }
+      },
+      "2024": {
+        "total_units": 7,
+        "units_with_data": 7,
+        "area": {
+          "total_offsite_ha": 1.92,
+          "total_overlap_ha": 52.68,
+          "total_ha": 54.6,
+          "units_with_area": 5
+        },
+        "location": {
+          "adjacent_yes": 5,
+          "adjacent_no": 2,
+          "adjacent_null": 0,
+          "overlapped_yes": 4,
+          "overlapped_no": 3,
+          "overlapped_null": 0,
+          "both_yes": 4
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 7,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 20,
+          "units_with_releases": 2,
+          "unique_species_approx": 16
+        }
+      }
+    },
+    "SH Upstream": {
+      "2023": {
+        "total_units": 34,
+        "units_with_data": 32,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 9385.31,
+          "units_with_area": 29
+        },
+        "location": {
+          "adjacent_yes": 9,
+          "adjacent_no": 11,
+          "adjacent_null": 14,
+          "overlapped_yes": 4,
+          "overlapped_no": 12,
+          "overlapped_null": 18,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 2,
+          "sedang": 8,
+          "tinggi": 10,
+          "null": 14,
+          "avg_score": 2.899,
+          "min_score": 1.13,
+          "max_score": 4.131,
+          "units_with_score": 20
+        },
+        "fauna": {
+          "total_released": 2987,
+          "units_with_releases": 18,
+          "unique_species_approx": 210
+        }
+      },
+      "2024": {
+        "total_units": 49,
+        "units_with_data": 49,
+        "area": {
+          "total_offsite_ha": 84218.61,
+          "total_overlap_ha": 7146.9,
+          "total_ha": 91365.51,
+          "units_with_area": 42
+        },
+        "location": {
+          "adjacent_yes": 10,
+          "adjacent_no": 35,
+          "adjacent_null": 4,
+          "overlapped_yes": 4,
+          "overlapped_no": 0,
+          "overlapped_null": 45,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 17,
+          "sedang": 10,
+          "tinggi": 14,
+          "null": 8,
+          "avg_score": 2.166,
+          "min_score": 0.0,
+          "max_score": 4.15,
+          "units_with_score": 41
+        },
+        "fauna": {
+          "total_released": 12862,
+          "units_with_releases": 22,
+          "unique_species_approx": 279
+        }
+      }
+    }
+  },
+  "by_subholding_original": {
+    "SH C&T": {
+      "2023": {
+        "total_units": 12,
+        "units_with_data": 0,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": null,
+          "units_with_area": 0
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 12,
+          "overlapped_yes": 0,
+          "overlapped_no": 0,
+          "overlapped_null": 12,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 12,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 0
+        }
+      },
+      "2024": {
+        "total_units": 12,
+        "units_with_data": 7,
+        "area": {
+          "total_offsite_ha": 4122.66,
+          "total_overlap_ha": 458.08,
+          "total_ha": 4580.74,
+          "units_with_area": 7
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 12,
+          "overlapped_yes": 0,
+          "overlapped_no": 0,
+          "overlapped_null": 12,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 12,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 0
+        }
+      }
+    },
+    "SH Gas": {
+      "2023": {
+        "total_units": 20,
+        "units_with_data": 8,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 81.81,
+          "units_with_area": 5
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 2,
+          "adjacent_null": 18,
+          "overlapped_yes": 0,
+          "overlapped_no": 2,
+          "overlapped_null": 18,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 2,
+          "sedang": 2,
+          "tinggi": 0,
+          "null": 16,
+          "avg_score": 1.579,
+          "min_score": 0.0,
+          "max_score": 2.815,
+          "units_with_score": 4
+        },
+        "fauna": {
+          "total_released": 42,
+          "units_with_releases": 4,
+          "unique_species_approx": 3
+        }
+      },
+      "2024": {
+        "total_units": 20,
+        "units_with_data": 0,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": null,
+          "units_with_area": 0
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 20,
+          "overlapped_yes": 0,
+          "overlapped_no": 0,
+          "overlapped_null": 20,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 20,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 0
+        }
+      }
+    },
+    "SH IML": {
+      "2023": {
+        "total_units": 3,
+        "units_with_data": 0,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": null,
+          "units_with_area": 0
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 3,
+          "overlapped_yes": 0,
+          "overlapped_no": 0,
+          "overlapped_null": 3,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 3,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 0
+        }
+      },
+      "2024": {
+        "total_units": 3,
+        "units_with_data": 3,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": 14.67,
+          "total_ha": 14.67,
+          "units_with_area": 1
+        },
+        "location": {
+          "adjacent_yes": 1,
+          "adjacent_no": 0,
+          "adjacent_null": 2,
+          "overlapped_yes": 0,
+          "overlapped_no": 1,
+          "overlapped_null": 2,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 1,
+          "tinggi": 1,
+          "null": 1,
+          "avg_score": 2.867,
+          "min_score": 2.379,
+          "max_score": 3.356,
+          "units_with_score": 2
+        },
+        "fauna": {
+          "total_released": 1053,
+          "units_with_releases": 1,
+          "unique_species_approx": 2
+        }
+      }
+    },
+    "SH PNRE": {
+      "2023": {
+        "total_units": 7,
+        "units_with_data": 6,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 26.65,
+          "units_with_area": 4
+        },
+        "location": {
+          "adjacent_yes": 1,
+          "adjacent_no": 1,
+          "adjacent_null": 5,
+          "overlapped_yes": 4,
+          "overlapped_no": 2,
+          "overlapped_null": 1,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 3,
+          "tinggi": 2,
+          "null": 2,
+          "avg_score": 2.796,
+          "min_score": 2.03,
+          "max_score": 3.5,
+          "units_with_score": 5
+        },
+        "fauna": {
+          "total_released": 140,
+          "units_with_releases": 2,
+          "unique_species_approx": 3
+        }
+      },
+      "2024": {
+        "total_units": 7,
+        "units_with_data": 7,
+        "area": {
+          "total_offsite_ha": 1.92,
+          "total_overlap_ha": 52.68,
+          "total_ha": 54.6,
+          "units_with_area": 5
+        },
+        "location": {
+          "adjacent_yes": 5,
+          "adjacent_no": 2,
+          "adjacent_null": 0,
+          "overlapped_yes": 4,
+          "overlapped_no": 3,
+          "overlapped_null": 0,
+          "both_yes": 4
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 0,
+          "tinggi": 0,
+          "null": 7,
+          "avg_score": null,
+          "min_score": null,
+          "max_score": null,
+          "units_with_score": 0
+        },
+        "fauna": {
+          "total_released": 20,
+          "units_with_releases": 2,
+          "unique_species_approx": 16
+        }
+      }
+    },
+    "SH R&P": {
+      "2023": {
+        "total_units": 13,
+        "units_with_data": 7,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 11790.69,
+          "units_with_area": 7
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 13,
+          "overlapped_yes": 0,
+          "overlapped_no": 7,
+          "overlapped_null": 6,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 4,
+          "tinggi": 3,
+          "null": 6,
+          "avg_score": 3.039,
+          "min_score": 2.435,
+          "max_score": 3.665,
+          "units_with_score": 7
+        },
+        "fauna": {
+          "total_released": 0,
+          "units_with_releases": 0,
+          "unique_species_approx": 132
+        }
+      },
+      "2024": {
+        "total_units": 13,
+        "units_with_data": 7,
+        "area": {
+          "total_offsite_ha": 4578.37,
+          "total_overlap_ha": null,
+          "total_ha": 4578.37,
+          "units_with_area": 7
+        },
+        "location": {
+          "adjacent_yes": 0,
+          "adjacent_no": 0,
+          "adjacent_null": 13,
+          "overlapped_yes": 0,
+          "overlapped_no": 0,
+          "overlapped_null": 13,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 0,
+          "sedang": 1,
+          "tinggi": 6,
+          "null": 6,
+          "avg_score": 3.207,
+          "min_score": 2.74,
+          "max_score": 3.497,
+          "units_with_score": 7
+        },
+        "fauna": {
+          "total_released": 4,
+          "units_with_releases": 1,
+          "unique_species_approx": 13
+        }
+      }
+    },
+    "SH Upstream": {
+      "2023": {
+        "total_units": 34,
+        "units_with_data": 32,
+        "area": {
+          "total_offsite_ha": null,
+          "total_overlap_ha": null,
+          "total_ha": 9385.31,
+          "units_with_area": 29
+        },
+        "location": {
+          "adjacent_yes": 9,
+          "adjacent_no": 11,
+          "adjacent_null": 14,
+          "overlapped_yes": 4,
+          "overlapped_no": 12,
+          "overlapped_null": 18,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 2,
+          "sedang": 8,
+          "tinggi": 10,
+          "null": 14,
+          "avg_score": 2.899,
+          "min_score": 1.13,
+          "max_score": 4.131,
+          "units_with_score": 20
+        },
+        "fauna": {
+          "total_released": 2987,
+          "units_with_releases": 18,
+          "unique_species_approx": 210
+        }
+      },
+      "2024": {
+        "total_units": 49,
+        "units_with_data": 49,
+        "area": {
+          "total_offsite_ha": 84218.61,
+          "total_overlap_ha": 7146.9,
+          "total_ha": 91365.51,
+          "units_with_area": 42
+        },
+        "location": {
+          "adjacent_yes": 10,
+          "adjacent_no": 35,
+          "adjacent_null": 4,
+          "overlapped_yes": 4,
+          "overlapped_no": 0,
+          "overlapped_null": 45,
+          "both_yes": 0
+        },
+        "biodiversity": {
+          "rendah": 17,
+          "sedang": 10,
+          "tinggi": 14,
+          "null": 8,
+          "avg_score": 2.166,
+          "min_score": 0.0,
+          "max_score": 4.15,
+          "units_with_score": 41
+        },
+        "fauna": {
+          "total_released": 12862,
+          "units_with_releases": 22,
+          "unique_species_approx": 279
+        }
+      }
+    }
+  }
+}
