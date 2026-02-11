@@ -1,40 +1,12 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { TreePine, Building2, Bird, BarChart3, ChevronDown } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { useAnimatedValue } from "@/lib/hooks/useAnimatedValue";
-import { summary } from "@/data";
+import { summary, getUniqueUnits } from "@/data";
 import { formatNumber } from "@/lib/utils";
-
-const year2024 = summary.by_year?.["2024"];
-
-const STATS = [
-  {
-    target: year2024?.area.total_ha ?? 100594,
-    label: "Hektar Area Konservasi",
-    icon: TreePine,
-    color: "#00539C",
-  },
-  {
-    target: summary.metadata?.total_records ?? 193,
-    label: "Unit Operasi Terpantau",
-    icon: Building2,
-    color: "#E31937",
-  },
-  {
-    target: year2024?.fauna.total_released ?? 13939,
-    label: "Fauna Dibebasliarkan",
-    icon: Bird,
-    color: "#2E8540",
-  },
-  {
-    target: year2024?.biodiversity.units_with_score ?? 50,
-    label: "Unit dengan Biodiversity Index",
-    icon: BarChart3,
-    color: "#F5A623",
-  },
-];
 
 function AnimatedStat({
   target,
@@ -42,14 +14,16 @@ function AnimatedStat({
   icon: Icon,
   color,
   delay,
+  inView,
 }: {
   target: number;
   label: string;
   icon: typeof TreePine;
   color: string;
   delay: number;
+  inView: boolean;
 }) {
-  const animated = useAnimatedValue(target, 1500);
+  const animated = useAnimatedValue(target, 1500, inView);
 
   return (
     <motion.div
@@ -69,6 +43,42 @@ function AnimatedStat({
 
 export default function HeroSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const year2024 = summary.by_year?.["2024"];
+
+  const stats = useMemo(() => {
+    const units2024 = getUniqueUnits(undefined, 2024);
+    const unitsWithScore = units2024.filter(
+      (u) => u.biodiversity_score != null
+    ).length;
+
+    return [
+      {
+        target: year2024?.area.total_ha ?? 0,
+        label: "Hektar Area Konservasi",
+        icon: TreePine,
+        color: "#00539C",
+      },
+      {
+        target: units2024.length,
+        label: "Unit Operasi Terpantau",
+        icon: Building2,
+        color: "#E31937",
+      },
+      {
+        target: year2024?.fauna.total_released ?? 0,
+        label: "Fauna Dibebasliarkan",
+        icon: Bird,
+        color: "#2E8540",
+      },
+      {
+        target: unitsWithScore,
+        label: "Unit dengan Biodiversity Index",
+        icon: BarChart3,
+        color: "#F5A623",
+      },
+    ];
+  }, [year2024]);
 
   const scrollToOverview = () => {
     document.getElementById("overview")?.scrollIntoView({ behavior: "smooth" });
@@ -131,8 +141,13 @@ export default function HeroSection() {
 
         {/* Stat cards */}
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {STATS.map((stat, i) => (
-            <AnimatedStat key={stat.label} {...stat} delay={0.4 + i * 0.1} />
+          {stats.map((stat, i) => (
+            <AnimatedStat
+              key={stat.label}
+              {...stat}
+              delay={0.4 + i * 0.1}
+              inView={inView}
+            />
           ))}
         </div>
       </div>

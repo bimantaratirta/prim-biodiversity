@@ -55,8 +55,6 @@ export interface AggregatedMetrics {
     sedang: number;
     tinggi: number;
     null: number;
-    avg_score: number | null;
-    min_score: number | null;
     max_score: number | null;
     units_with_score: number;
   };

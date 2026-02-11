@@ -1,41 +1,82 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import NarrativeBlock from "@/components/ui/NarrativeBlock";
 import YearToggle from "@/components/ui/YearToggle";
 import StackedPercentBar from "@/components/charts/StackedPercentBar";
 import { SUB_HOLDINGS, YEARS } from "@/lib/constants";
-import { summary } from "@/data";
+import { getUniqueUnits, getRecords } from "@/data";
 
 export default function LocationProximitySection() {
   const [year, setYear] = useState(2024);
 
-  const adjacentData = SUB_HOLDINGS.map((sh) => {
-    const m = summary.by_subholding?.[sh.key]?.[String(year)];
-    return {
-      name: sh.label,
-      yes: m?.location.adjacent_yes ?? 0,
-      no: m?.location.adjacent_no ?? 0,
-      null_count: m?.location.adjacent_null ?? 0,
-    };
-  });
+  const { adjacentData, overlappedData, bothYes, totalBothYes, insightText } =
+    useMemo(() => {
+      const adjData = SUB_HOLDINGS.map((sh) => {
+        const units = getUniqueUnits(sh.key, year);
+        return {
+          name: sh.label,
+          yes: units.filter((u) => u.location_adjacent === "yes").length,
+          no: units.filter((u) => u.location_adjacent === "no").length,
+          null_count: units.filter((u) => u.location_adjacent === null).length,
+        };
+      });
 
-  const overlappedData = SUB_HOLDINGS.map((sh) => {
-    const m = summary.by_subholding?.[sh.key]?.[String(year)];
-    return {
-      name: sh.label,
-      yes: m?.location.overlapped_yes ?? 0,
-      no: m?.location.overlapped_no ?? 0,
-      null_count: m?.location.overlapped_null ?? 0,
-    };
-  });
+      const ovlData = SUB_HOLDINGS.map((sh) => {
+        const units = getUniqueUnits(sh.key, year);
+        return {
+          name: sh.label,
+          yes: units.filter((u) => u.location_overlapped === "yes").length,
+          no: units.filter((u) => u.location_overlapped === "no").length,
+          null_count: units.filter((u) => u.location_overlapped === null)
+            .length,
+        };
+      });
 
-  const bothYes = SUB_HOLDINGS.map((sh) => {
-    const m = summary.by_subholding?.[sh.key]?.[String(year)];
-    return { label: sh.label, color: sh.color, count: m?.location.both_yes ?? 0 };
-  });
-  const totalBothYes = bothYes.reduce((sum, d) => sum + d.count, 0);
+      // "Both yes" must be checked at the wilayah_kerja (record) level:
+      // A unit counts as "both yes" only if at least one of its WK records
+      // has BOTH adjacent=yes AND overlapped=yes in the same row.
+      const both = SUB_HOLDINGS.map((sh) => {
+        const recs = getRecords(sh.key, year);
+        // Group records by unit_operasi
+        const byUnit = new Map<string, typeof recs>();
+        for (const r of recs) {
+          if (!byUnit.has(r.unit_operasi)) byUnit.set(r.unit_operasi, []);
+          byUnit.get(r.unit_operasi)!.push(r);
+        }
+        // Count units where at least one WK has both yes
+        let count = 0;
+        Array.from(byUnit.values()).forEach((unitRecs) => {
+          if (unitRecs.some(r => r.location_adjacent === "yes" && r.location_overlapped === "yes")) {
+            count++;
+          }
+        });
+        return { label: sh.label, color: sh.color, count };
+      });
+
+      const totalBoth = both.reduce((sum, d) => sum + d.count, 0);
+
+      // Build dynamic insight text
+      const shWithBoth = both.filter((d) => d.count > 0);
+      let insight: string;
+      if (shWithBoth.length > 0) {
+        const shNames = shWithBoth
+          .map((d) => `${d.label} (${d.count} unit)`)
+          .join(" dan ");
+        insight = `Pada ${year}, <strong>${totalBoth} unit</strong> dari ${shNames} memiliki lokasi yang berdekatan sekaligus tumpang tindih dengan kawasan lindung. Unit-unit ini memerlukan perhatian khusus dan memiliki program konservasi aktif sebagai bagian dari pengelolaan dampak lingkungan.`;
+      } else {
+        insight = `Pada ${year}, tidak ada unit operasi yang memiliki lokasi berdekatan sekaligus tumpang tindih dengan kawasan lindung berdasarkan data yang dilaporkan.`;
+      }
+
+      return {
+        adjacentData: adjData,
+        overlappedData: ovlData,
+        bothYes: both,
+        totalBothYes: totalBoth,
+        insightText: insight,
+      };
+    }, [year]);
 
   return (
     <SectionWrapper id="location-proximity" background="white">
@@ -106,14 +147,7 @@ export default function LocationProximitySection() {
 
       <div className="mt-8">
         <NarrativeBlock variant="insight">
-          <p>
-            Pada {year}, <strong>{totalBothYes} unit</strong> dari SH PNRE (PGE
-            Areas) memiliki lokasi yang berdekatan sekaligus tumpang tindih
-            dengan kawasan lindung. Hal ini umum terjadi di area geotermal yang
-            memang seringkali berada di kawasan pegunungan dengan biodiversitas
-            tinggi. Unit-unit ini memiliki program konservasi aktif sebagai
-            bagian dari pengelolaan dampak lingkungan.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: insightText }} />
         </NarrativeBlock>
       </div>
     </SectionWrapper>

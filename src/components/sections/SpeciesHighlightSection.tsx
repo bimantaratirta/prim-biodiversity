@@ -42,17 +42,14 @@ export default function SpeciesHighlightSection() {
   return (
     <SectionWrapper id="species" background="white">
       <h2 className="section-title">Spesies yang Dilindungi</h2>
-      <p className="section-subtitle">
-        Fauna dan flora yang dikonservasi di wilayah operasi Pertamina
-      </p>
+      <p className="section-subtitle">Fauna dan flora yang dikonservasi di wilayah operasi Pertamina</p>
 
       <div className="mt-6">
         <NarrativeBlock>
           <p>
-            Pertamina mengidentifikasi dan melindungi berbagai spesies yang masuk
-            dalam <strong>IUCN Red List</strong> di area operasinya. Program
-            konservasi mencakup identifikasi spesies, perlindungan habitat, dan
-            pelepasliaran fauna ke habitat aslinya.
+            Pertamina mengidentifikasi dan melindungi berbagai spesies yang masuk dalam <strong>IUCN Red List</strong> di
+            area operasinya. Program konservasi mencakup identifikasi spesies, perlindungan habitat, dan pelepasliaran fauna
+            ke habitat aslinya.
           </p>
         </NarrativeBlock>
       </div>
@@ -60,20 +57,13 @@ export default function SpeciesHighlightSection() {
       {/* Flagship species cards */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {FLAGSHIP_SPECIES.map((sp) => (
-          <SpeciesCard
-            key={sp.commonName}
-            commonName={sp.commonName}
-            latinName={sp.latinName}
-            iucnStatus={sp.iucnStatus}
-          />
+          <SpeciesCard key={sp.commonName} commonName={sp.commonName} latinName={sp.latinName} iucnStatus={sp.iucnStatus} />
         ))}
       </div>
 
       {/* IUCN Distribution */}
       <div className="mt-10">
-        <h3 className="mb-4 text-lg font-semibold text-gray-900">
-          Distribusi Status IUCN
-        </h3>
+        <h3 className="mb-4 text-lg font-semibold text-gray-900">Distribusi Status IUCN</h3>
         <IUCNDistributionBar data={iucnCounts} />
       </div>
 
@@ -88,15 +78,16 @@ export default function SpeciesHighlightSection() {
             className="!shadow-md"
           />
           <p className="mt-3 text-sm text-gray-500">
-            Meningkat dari{" "}
-            {formatNumber(fauna2023?.total_released ?? 0)} di tahun 2023
+            Meningkat dari {formatNumber(fauna2023?.total_released ?? 0)} di tahun 2023
           </p>
         </div>
 
         <div className="card">
-          <h3 className="mb-3 text-sm font-semibold text-gray-700">
-            Ringkasan Fauna per Tahun
-          </h3>
+          <h3 className="mb-3 text-sm font-semibold text-gray-700">Ringkasan Fauna per Tahun</h3>
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-600">Unit dengan rilis (2023)</span>
+            <span className="font-semibold">{fauna2023?.units_with_releases ?? 0}</span>
+          </div>
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Unit dengan rilis (2024)</span>
@@ -106,10 +97,6 @@ export default function SpeciesHighlightSection() {
               <span className="text-sm text-gray-600">Spesies unik teridentifikasi (2024)</span>
               <span className="font-semibold">{fauna2024?.unique_species_approx ?? 0}</span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-600">Unit dengan rilis (2023)</span>
-              <span className="font-semibold">{fauna2023?.units_with_releases ?? 0}</span>
-            </div>
           </div>
         </div>
       </div>
@@ -118,11 +105,9 @@ export default function SpeciesHighlightSection() {
       <div className="mt-8">
         <NarrativeBlock variant="callout">
           <p>
-            Program konservasi flora meliputi penanaman dan pemeliharaan berbagai
-            spesies, termasuk spesies langka seperti{" "}
-            <strong>Gaharu</strong> (<em>Aquilaria malaccensis</em> — CR),{" "}
-            <strong>Padma Raksasa</strong> (<em>Rafflesia arnoldii</em>), dan{" "}
-            <strong>Meranti Merah</strong> (<em>Shorea johorensis</em> — CR).
+            Program konservasi flora meliputi penanaman dan pemeliharaan berbagai spesies, termasuk spesies langka seperti{" "}
+            <strong>Gaharu</strong> (<em>Aquilaria malaccensis</em> — CR), <strong>Padma Raksasa</strong> (
+            <em>Rafflesia arnoldii</em>), dan <strong>Meranti Merah</strong> (<em>Shorea johorensis</em> — CR).
           </p>
         </NarrativeBlock>
       </div>

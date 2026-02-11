@@ -3,7 +3,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import NarrativeBlock from "@/components/ui/NarrativeBlock";
 import StatCard from "@/components/ui/StatCard";
-import SlopeChart from "@/components/charts/SlopeChart";
+import GroupedBarChart from "@/components/charts/GroupedBarChart";
 import { SUB_HOLDINGS } from "@/lib/constants";
 import { summary } from "@/data";
 import { TreePine, Building2, Bird, BarChart3, Check } from "lucide-react";
@@ -28,17 +28,14 @@ export default function YearOverYearSection() {
   return (
     <SectionWrapper id="year-over-year" background="white">
       <h2 className="section-title">Tren 2023 — 2024</h2>
-      <p className="section-subtitle">
-        Perkembangan monitoring biodiversitas tahun ke tahun
-      </p>
+      <p className="section-subtitle">Perkembangan monitoring biodiversitas tahun ke tahun</p>
 
       <div className="mt-6">
         <NarrativeBlock>
           <p>
-            Perbandingan data 2023 dan 2024 menunjukkan perkembangan signifikan
-            dalam monitoring biodiversitas Pertamina. Peningkatan terbesar
-            terlihat pada jumlah unit yang melaporkan data, luasan area yang
-            teridentifikasi, dan jumlah fauna yang dibebasliarkan.
+            Perbandingan data 2023 dan 2024 menunjukkan perkembangan signifikan dalam monitoring biodiversitas Pertamina.
+            Peningkatan terbesar terlihat pada jumlah unit yang melaporkan data, luasan area yang teridentifikasi, dan jumlah
+            fauna yang dibebasliarkan.
           </p>
         </NarrativeBlock>
       </div>
@@ -67,40 +64,36 @@ export default function YearOverYearSection() {
           previousValue={y23?.fauna.total_released ?? null}
         />
         <StatCard
-          value={y24?.biodiversity.avg_score ?? null}
-          label="Avg Biodiversity Score"
+          value={y24?.biodiversity.tinggi ?? null}
+          label="Kategori Tinggi"
           icon={<BarChart3 className="h-8 w-8" />}
-          format="decimal"
-          previousValue={y23?.biodiversity.avg_score ?? null}
+          format="number"
+          suffix="unit"
+          previousValue={y23?.biodiversity.tinggi ?? null}
         />
       </div>
 
       {/* Slope chart */}
       <div className="mt-10 card">
-        <h3 className="mb-4 text-sm font-semibold text-gray-700">
-          Area Konservasi per Sub-Holding (ha)
-        </h3>
-        <SlopeChart data={slopeData} />
+        <h3 className="mb-4 text-sm font-semibold text-gray-700">Area Konservasi per Sub-Holding (ha)</h3>
+        <GroupedBarChart data={slopeData} />
       </div>
 
       {/* Data maturity narrative */}
       <div className="mt-8 space-y-4">
         <NarrativeBlock variant="warning">
           <p>
-            <strong>Catatan penting:</strong> Peningkatan angka antara 2023 dan
-            2024 tidak selalu mencerminkan perubahan kondisi di lapangan. Sebagian
-            besar peningkatan disebabkan oleh{" "}
-            <strong>perbaikan sistem pelaporan dan pendataan</strong>. Contohnya,
-            penurunan rata-rata skor biodiversitas dari 2,77 ke 2,34 justru
-            menunjukkan bahwa lebih banyak unit melaporkan data (termasuk unit
-            dengan skor rendah yang sebelumnya tidak terdata).
+            <strong>Catatan penting:</strong> Peningkatan angka antara 2023 dan 2024 tidak selalu mencerminkan perubahan
+            kondisi di lapangan. Sebagian besar peningkatan disebabkan oleh{" "}
+            <strong>perbaikan sistem pelaporan dan pendataan</strong>. Contohnya, perubahan distribusi kategori biodiversitas
+            justru menunjukkan bahwa lebih banyak unit melaporkan data (termasuk unit dengan skor rendah yang sebelumnya
+            tidak terdata).
           </p>
         </NarrativeBlock>
         <NarrativeBlock>
           <p>
-            Di sisi lain, peningkatan area konservasi dari ~21.000 ha ke
-            ~100.000 ha didominasi oleh pendataan ulang area Pertamina Hulu Rokan
-            (PHR) yang sebelumnya belum tercatat lengkap.
+            Di sisi lain, peningkatan area konservasi dari ~21.000 ha ke ~100.000 ha didominasi oleh pendataan ulang area
+            Pertamina Hulu Rokan (PHR) yang sebelumnya belum tercatat lengkap.
           </p>
         </NarrativeBlock>
       </div>

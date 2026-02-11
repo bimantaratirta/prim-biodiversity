@@ -24,57 +24,49 @@ const METRIC_ROWS: MetricRow[] = [
   },
   {
     metric: "Unit dengan Data",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.units_with_data ?? null,
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.units_with_data ?? null,
     format: "number",
     showBar: true,
   },
   {
     metric: "Area Konservasi (ha)",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.area.total_ha ?? null,
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.area.total_ha ?? null,
     format: "decimal",
     showBar: true,
   },
   {
     metric: "Adjacent: Yes",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.location.adjacent_yes ?? null,
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.location.adjacent_yes ?? null,
     format: "number",
     showBar: true,
   },
   {
     metric: "Overlapped: Yes",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.location.overlapped_yes ?? null,
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.location.overlapped_yes ?? null,
     format: "number",
     showBar: true,
   },
   {
     metric: "Both Yes",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.location.both_yes ?? null,
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.location.both_yes ?? null,
     format: "number",
     showBar: false,
   },
   {
-    metric: "Avg Bio Score",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.biodiversity.avg_score ?? null,
-    format: "decimal",
+    metric: "Bio Rendah",
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.biodiversity.rendah ?? null,
+    format: "number",
     showBar: false,
   },
   {
-    metric: "Kategori Tinggi",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.biodiversity.tinggi ?? null,
+    metric: "Bio Tinggi",
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.biodiversity.tinggi ?? null,
     format: "number",
     showBar: true,
   },
   {
     metric: "Fauna Released",
-    getValue: (sh, y) =>
-      summary.by_subholding?.[sh]?.[y]?.fauna.total_released ?? null,
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.fauna.total_released ?? null,
     format: "number",
     showBar: true,
   },
@@ -95,12 +87,42 @@ export default function SubholdingComparisonSection() {
     });
   }, [yearStr]);
 
+  const narrative = useMemo(() => {
+    // Build per-SH stats for the selected year
+    const stats = SUB_HOLDINGS.map((sh) => {
+      const d = summary.by_subholding?.[sh.key]?.[yearStr];
+      const totalUnits = d?.total_units ?? 0;
+      const unitsWithData = d?.units_with_data ?? 0;
+      const ratio = totalUnits > 0 ? unitsWithData / totalUnits : 0;
+      return { label: sh.label, totalUnits, unitsWithData, ratio };
+    }).filter((s) => s.totalUnits > 0);
+
+    if (stats.length === 0) return null;
+
+    const sentences: string[] = [];
+
+    // SH with most units
+    const mostUnits = [...stats].sort((a, b) => b.totalUnits - a.totalUnits)[0];
+    const allReport = mostUnits.ratio === 1;
+    sentences.push(
+      `${mostUnits.label} memiliki cakupan terluas dengan ${formatNumber(mostUnits.totalUnits)} unit operasi${allReport ? ` yang semuanya melaporkan data di ${year}` : `, ${formatNumber(mostUnits.unitsWithData)} di antaranya melaporkan data di ${year}`}.`,
+    );
+
+    // SH with lowest reporting ratio (only if it's notably low)
+    const lowest = [...stats].sort((a, b) => a.ratio - b.ratio)[0];
+    if (lowest.label !== mostUnits.label && lowest.ratio < 0.5) {
+      sentences.push(
+        `${lowest.label} masih memerlukan peningkatan pengumpulan data di ${year} (${formatNumber(lowest.unitsWithData)} dari ${formatNumber(lowest.totalUnits)} unit melaporkan data).`,
+      );
+    }
+
+    return sentences.join(" ");
+  }, [yearStr, year]);
+
   return (
     <SectionWrapper id="subholding-comparison" background="gray">
       <h2 className="section-title">Perbandingan Sub-Holding</h2>
-      <p className="section-subtitle">
-        Ringkasan metrik biodiversitas per Sub-Holding
-      </p>
+      <p className="section-subtitle">Ringkasan metrik biodiversitas per Sub-Holding</p>
 
       <div className="mt-6">
         <YearToggle years={[...YEARS]} selectedYear={year} onChange={setYear} />
@@ -124,10 +146,7 @@ export default function SubholdingComparisonSection() {
                     }}
                   >
                     <span className="flex items-center justify-end gap-1.5">
-                      <span
-                        className="h-2 w-2 rounded-full"
-                        style={{ backgroundColor: sh.color }}
-                      />
+                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: sh.color }} />
                       {sh.label}
                     </span>
                   </th>
@@ -138,24 +157,16 @@ export default function SubholdingComparisonSection() {
               {METRIC_ROWS.map((row, ri) => (
                 <tr
                   key={row.metric}
-                  className={`transition-colors hover:bg-blue-50/50 ${
-                    ri % 2 === 0 ? "bg-white" : "bg-gray-50/50"
-                  }`}
+                  className={`transition-colors hover:bg-blue-50/50 ${ri % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}
                 >
-                  <td className="sticky left-0 z-10 bg-inherit px-4 py-3 font-medium text-gray-700">
-                    {row.metric}
-                  </td>
+                  <td className="sticky left-0 z-10 bg-inherit px-4 py-3 font-medium text-gray-700">{row.metric}</td>
                   {SUB_HOLDINGS.map((sh) => {
                     const val = row.getValue(sh.key, yearStr);
                     const max = maxPerRow[ri];
-                    const barPct =
-                      row.showBar && val && max ? (val / max) * 100 : 0;
+                    const barPct = row.showBar && val && max ? (val / max) * 100 : 0;
 
                     return (
-                      <td
-                        key={sh.key}
-                        className="relative px-4 py-3 text-right"
-                      >
+                      <td key={sh.key} className="relative px-4 py-3 text-right">
                         {barPct > 0 && (
                           <div
                             className="absolute inset-y-0 right-0 opacity-15"
@@ -182,17 +193,13 @@ export default function SubholdingComparisonSection() {
         </div>
       </div>
 
-      <div className="mt-8">
-        <NarrativeBlock>
-          <p>
-            SH Upstream memiliki cakupan data terluas dengan 49 unit operasi
-            yang semuanya melaporkan data di 2024. SH Downstream menunjukkan
-            peningkatan pelaporan signifikan dari 2023 ke 2024, terutama dari
-            unit-unit MOR yang mulai melaporkan data luasan area. SH Gas masih
-            memerlukan peningkatan pengumpulan data di 2024.
-          </p>
-        </NarrativeBlock>
-      </div>
+      {narrative && (
+        <div className="mt-8">
+          <NarrativeBlock>
+            <p>{narrative}</p>
+          </NarrativeBlock>
+        </div>
+      )}
     </SectionWrapper>
   );
 }

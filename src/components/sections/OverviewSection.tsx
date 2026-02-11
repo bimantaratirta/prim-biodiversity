@@ -1,14 +1,23 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import NarrativeBlock from "@/components/ui/NarrativeBlock";
 import { SUB_HOLDINGS } from "@/lib/constants";
-import { summary } from "@/data";
+import { getUniqueUnits } from "@/data";
 
 export default function OverviewSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const shUnitCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const sh of SUB_HOLDINGS) {
+      counts[sh.key] = getUniqueUnits(sh.key, 2024).length;
+    }
+    return counts;
+  }, []);
 
   return (
     <SectionWrapper id="overview" background="white">
@@ -53,9 +62,7 @@ export default function OverviewSection() {
         {/* Right — SH Infographic */}
         <div className="space-y-4">
           {SUB_HOLDINGS.map((sh, i) => {
-            const metrics =
-              summary.by_subholding?.[sh.key]?.["2024"];
-            const unitCount = metrics?.total_units ?? 0;
+            const unitCount = shUnitCounts[sh.key] ?? 0;
 
             return (
               <motion.div

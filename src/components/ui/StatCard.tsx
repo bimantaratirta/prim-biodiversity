@@ -55,7 +55,8 @@ export default function StatCard({
   const numericValue = typeof value === "number" ? value : 0;
   const animatedValue = useAnimatedValue(
     animate && typeof value === "number" ? numericValue : 0,
-    1500
+    1500,
+    inView
   );
 
   const displayValue =

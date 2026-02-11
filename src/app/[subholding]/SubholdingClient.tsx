@@ -146,9 +146,9 @@ export default function SubholdingClient({ slug }: { slug: string }) {
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
           <StatCard value={metrics?.total_units ?? null} label="Total Unit Operasi" format="number" />
           <StatCard value={metrics?.area.total_ha ?? null} label="Area Konservasi" format="area" />
-          <StatCard value={bio?.avg_score ?? null} label="Rata-rata Bio Score" format="decimal" />
+          <StatCard value={bio?.tinggi ?? null} label="Bio Kategori Tinggi" format="number" suffix="unit" />
           <StatCard value={metrics?.fauna.total_released ?? null} label="Fauna Released" format="number" />
-          <StatCard value={bio?.tinggi ?? null} label="Kategori Tinggi" format="number" suffix="unit" />
+          <StatCard value={bio?.sedang ?? null} label="Bio Kategori Sedang" format="number" suffix="unit" />
         </div>
 
         {records.length === 0 ? (
@@ -180,7 +180,7 @@ export default function SubholdingClient({ slug }: { slug: string }) {
                 <DonutChart
                   data={donutData}
                   centerLabel={
-                    bio?.avg_score != null ? formatNumber(bio.avg_score, 2) : "\u2014"
+                    bio ? `${bio.tinggi + bio.sedang + bio.rendah}` : "\u2014"
                   }
                   size="md"
                 />

@@ -35,9 +35,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur shadow-sm"
-          : "bg-transparent"
+        scrolled ? "bg-white/95 backdrop-blur shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -70,30 +68,26 @@ export default function Navbar() {
               <ChevronDown className="h-3 w-3" />
             </button>
             {shDropdownOpen && (
-              <div className="absolute right-0 top-full mt-1 w-56 rounded-xl bg-white py-2 shadow-lg ring-1 ring-gray-100">
-                {SUB_HOLDINGS.map((sh) => (
-                  <Link
-                    key={sh.slug}
-                    href={`/${sh.slug}`}
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    <span
-                      className="h-2 w-2 rounded-full"
-                      style={{ backgroundColor: sh.color }}
-                    />
-                    {sh.label}
-                  </Link>
-                ))}
+              <div className="absolute right-0 top-full w-56 pt-2">
+                <div className="rounded-xl bg-white py-2 shadow-lg ring-1 ring-gray-100">
+                  {SUB_HOLDINGS.map((sh) => (
+                    <Link
+                      key={sh.slug}
+                      href={`/${sh.slug}`}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >
+                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: sh.color }} />
+                      {sh.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden ${textClass}`}
-        >
+        <button onClick={() => setMobileOpen(!mobileOpen)} className={`md:hidden ${textClass}`}>
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -111,9 +105,7 @@ export default function Navbar() {
             </button>
           ))}
           <div className="mt-2 border-t border-gray-100 pt-2">
-            <p className="py-1 text-xs font-medium uppercase text-gray-400">
-              Sub-Holding
-            </p>
+            <p className="py-1 text-xs font-medium uppercase text-gray-400">Sub-Holding</p>
             {SUB_HOLDINGS.map((sh) => (
               <Link
                 key={sh.slug}
@@ -121,10 +113,7 @@ export default function Navbar() {
                 className="flex items-center gap-2 py-2 text-sm text-gray-700"
                 onClick={() => setMobileOpen(false)}
               >
-                <span
-                  className="h-2 w-2 rounded-full"
-                  style={{ backgroundColor: sh.color }}
-                />
+                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: sh.color }} />
                 {sh.label}
               </Link>
             ))}
