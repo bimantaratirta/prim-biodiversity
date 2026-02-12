@@ -14,12 +14,12 @@ interface GroupedBarChartProps {
 export default function GroupedBarChart({ data }: GroupedBarChartProps) {
   const maxVal = Math.max(...data.flatMap((d) => [d.value2023, d.value2024]));
 
-  const BAR_H = 20;
-  const GAP = 4;
-  const GROUP_GAP = 24;
-  const LABEL_W = 130;
+  const BAR_H = 28;
+  const GAP = 6;
+  const GROUP_GAP = 28;
+  const LABEL_W = 140;
   const CHANGE_W = 70;
-  const W = 700;
+  const W = 800;
   const groupHeight = BAR_H * 2 + GAP;
   const H = data.length * (groupHeight + GROUP_GAP) - GROUP_GAP + 10;
 
@@ -30,7 +30,7 @@ export default function GroupedBarChart({ data }: GroupedBarChartProps) {
 
   return (
     <div className="overflow-x-auto">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ maxWidth: 700 }}>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ maxWidth: 900 }}>
         {data.map((d, i) => {
           const groupY = i * (groupHeight + GROUP_GAP);
           const barAreaW = W - LABEL_W - CHANGE_W;

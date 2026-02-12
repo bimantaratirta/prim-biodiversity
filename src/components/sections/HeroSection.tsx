@@ -15,6 +15,7 @@ function AnimatedStat({
   color,
   delay,
   inView,
+  suffix,
 }: {
   target: number;
   label: string;
@@ -22,6 +23,7 @@ function AnimatedStat({
   color: string;
   delay: number;
   inView: boolean;
+  suffix?: string;
 }) {
   const animated = useAnimatedValue(target, 1500, inView);
 
@@ -35,6 +37,7 @@ function AnimatedStat({
       <Icon className="mb-2 h-6 w-6" style={{ color }} />
       <p className="text-3xl font-bold text-white">
         {formatNumber(animated)}
+        {suffix}
       </p>
       <p className="mt-1 text-sm text-white/70">{label}</p>
     </motion.div>
@@ -48,9 +51,10 @@ export default function HeroSection() {
 
   const stats = useMemo(() => {
     const units2024 = getUniqueUnits(undefined, 2024);
-    const unitsWithScore = units2024.filter(
-      (u) => u.biodiversity_score != null
-    ).length;
+
+    const bio = year2024?.biodiversity;
+    const scored = (bio?.rendah ?? 0) + (bio?.sedang ?? 0) + (bio?.tinggi ?? 0);
+    const pctTinggi = scored > 0 ? Math.round(((bio?.tinggi ?? 0) / scored) * 100) : 0;
 
     return [
       {
@@ -72,10 +76,11 @@ export default function HeroSection() {
         color: "#2E8540",
       },
       {
-        target: unitsWithScore,
-        label: "Unit dengan Biodiversity Index",
+        target: pctTinggi,
+        label: "Biodiversitas Kategori Tinggi",
         icon: BarChart3,
         color: "#F5A623",
+        suffix: "%",
       },
     ];
   }, [year2024]);
@@ -135,19 +140,13 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mx-auto mt-6 max-w-2xl text-lg text-white/60"
         >
-          Monitoring dan konservasi biodiversitas di seluruh unit operasi
-          Pertamina, dari hulu hingga hilir.
+          Monitoring dan konservasi biodiversitas di seluruh unit operasi Pertamina, dari hulu hingga hilir.
         </motion.p>
 
         {/* Stat cards */}
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {stats.map((stat, i) => (
-            <AnimatedStat
-              key={stat.label}
-              {...stat}
-              delay={0.4 + i * 0.1}
-              inView={inView}
-            />
+            <AnimatedStat key={stat.label} {...stat} delay={0.4 + i * 0.1} inView={inView} />
           ))}
         </div>
       </div>
@@ -157,10 +156,7 @@ export default function HeroSection() {
         onClick={scrollToOverview}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 hover:text-white transition-colors"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
           <ChevronDown className="h-8 w-8" />
         </motion.div>
       </button>

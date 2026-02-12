@@ -17,13 +17,13 @@ interface MetricRow {
 
 const METRIC_ROWS: MetricRow[] = [
   {
-    metric: "Total Unit",
+    metric: "Total Pesebaran Unit",
     getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.total_units ?? null,
     format: "number",
     showBar: true,
   },
   {
-    metric: "Unit dengan Data",
+    metric: "PesebaranUnit dengan Data",
     getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.units_with_data ?? null,
     format: "number",
     showBar: true,
