@@ -68,10 +68,10 @@ export default function BiodiversityIndexSection() {
           </p>
           <ul className="mt-2 list-inside list-disc space-y-1">
             <li>
-              <strong>Rendah</strong> (H&apos; &le; 2): Keberagaman rendah, didominasi sedikit spesies
+              <strong>Rendah</strong> (H&apos; &le; 1): Keberagaman rendah, didominasi sedikit spesies
             </li>
             <li>
-              <strong>Sedang</strong> (2 &lt; H&apos; &le; 3): Keberagaman moderat
+              <strong>Sedang</strong> (1 &lt; H&apos; &le; 3): Keberagaman moderat
             </li>
             <li>
               <strong>Tinggi</strong> (H&apos; &gt; 3): Keberagaman tinggi, ekosistem sehat
@@ -109,11 +109,7 @@ export default function BiodiversityIndexSection() {
               <p className="mb-3 text-sm font-bold" style={{ color: sh.color }}>
                 {sh.label}
               </p>
-              <DonutChart
-                data={chartData}
-                centerLabel={`${sh.totalWithData}`}
-                size="md"
-              />
+              <DonutChart data={chartData} centerLabel={`${sh.totalWithData}`} size="md" />
               {/* Legend */}
               <div className="mt-4 w-full space-y-1.5">
                 {chartData.map((d) => (

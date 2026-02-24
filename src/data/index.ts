@@ -52,7 +52,7 @@ export interface UnitRecord {
 }
 
 function classifyScore(score: number): BiodiversityCategory {
-  if (score <= 2) return "Rendah";
+  if (score <= 1) return "Rendah";
   if (score <= 3) return "Sedang";
   return "Tinggi";
 }
@@ -145,7 +145,7 @@ export function getUniqueUnits(
         maxScore !== null
           ? classifyScore(maxScore)
           : recs.find((r) => r.biodiversity_category != null)
-              ?.biodiversity_category ?? null,
+            ?.biodiversity_category ?? null,
       fauna_released_count:
         faunaCounts.length > 0
           ? faunaCounts.reduce((a, b) => a + b, 0)

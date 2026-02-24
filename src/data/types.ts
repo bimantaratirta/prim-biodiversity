@@ -33,7 +33,8 @@ export interface BiodiversityRecord {
 }
 
 export interface AggregatedMetrics {
-  total_units: number;
+  total_unit_operasi: number;
+  total_wilayah_kerja: number;
   units_with_data: number;
   area: {
     total_offsite_ha: number | null;

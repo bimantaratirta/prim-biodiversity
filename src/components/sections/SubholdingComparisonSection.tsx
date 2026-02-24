@@ -17,13 +17,19 @@ interface MetricRow {
 
 const METRIC_ROWS: MetricRow[] = [
   {
-    metric: "Total Pesebaran Unit",
-    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.total_units ?? null,
+    metric: "Unit Operasi",
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.total_unit_operasi ?? null,
     format: "number",
     showBar: true,
   },
   {
-    metric: "PesebaranUnit dengan Data",
+    metric: "Wilayah Kerja",
+    getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.total_wilayah_kerja ?? null,
+    format: "number",
+    showBar: true,
+  },
+  {
+    metric: "Unit dengan Data",
     getValue: (sh, y) => summary.by_subholding?.[sh]?.[y]?.units_with_data ?? null,
     format: "number",
     showBar: true,
@@ -91,28 +97,29 @@ export default function SubholdingComparisonSection() {
     // Build per-SH stats for the selected year
     const stats = SUB_HOLDINGS.map((sh) => {
       const d = summary.by_subholding?.[sh.key]?.[yearStr];
-      const totalUnits = d?.total_units ?? 0;
+      const totalUnitOperasi = d?.total_unit_operasi ?? 0;
       const unitsWithData = d?.units_with_data ?? 0;
-      const ratio = totalUnits > 0 ? unitsWithData / totalUnits : 0;
-      return { label: sh.label, totalUnits, unitsWithData, ratio };
-    }).filter((s) => s.totalUnits > 0);
+      const totalWilayahKerja = d?.total_wilayah_kerja ?? 0;
+      const ratio = totalWilayahKerja > 0 ? unitsWithData / totalWilayahKerja : 0;
+      return { label: sh.label, totalUnitOperasi, unitsWithData, ratio };
+    }).filter((s) => s.totalUnitOperasi > 0);
 
     if (stats.length === 0) return null;
 
     const sentences: string[] = [];
 
     // SH with most units
-    const mostUnits = [...stats].sort((a, b) => b.totalUnits - a.totalUnits)[0];
+    const mostUnits = [...stats].sort((a, b) => b.totalUnitOperasi - a.totalUnitOperasi)[0];
     const allReport = mostUnits.ratio === 1;
     sentences.push(
-      `${mostUnits.label} memiliki cakupan terluas dengan ${formatNumber(mostUnits.totalUnits)} unit operasi${allReport ? ` yang semuanya melaporkan data di ${year}` : `, ${formatNumber(mostUnits.unitsWithData)} di antaranya melaporkan data di ${year}`}.`,
+      `${mostUnits.label} memiliki cakupan terluas dengan ${formatNumber(mostUnits.totalUnitOperasi)} unit operasi${allReport ? ` yang semuanya melaporkan data di ${year}` : `, ${formatNumber(mostUnits.unitsWithData)} di antaranya melaporkan data di ${year}`}.`,
     );
 
     // SH with lowest reporting ratio (only if it's notably low)
     const lowest = [...stats].sort((a, b) => a.ratio - b.ratio)[0];
     if (lowest.label !== mostUnits.label && lowest.ratio < 0.5) {
       sentences.push(
-        `${lowest.label} masih memerlukan peningkatan pengumpulan data di ${year} (${formatNumber(lowest.unitsWithData)} dari ${formatNumber(lowest.totalUnits)} unit melaporkan data).`,
+        `${lowest.label} masih memerlukan peningkatan pengumpulan data di ${year} (${formatNumber(lowest.unitsWithData)} dari ${formatNumber(lowest.totalUnitOperasi)} unit melaporkan data).`,
       );
     }
 

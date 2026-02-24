@@ -143,8 +143,9 @@ export default function SubholdingClient({ slug }: { slug: string }) {
         </div>
 
         {/* Stat Cards */}
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
-          <StatCard value={metrics?.total_units ?? null} label="Total Unit Operasi" format="number" />
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-6">
+          <StatCard value={metrics?.total_unit_operasi ?? null} label="Unit Operasi" format="number" />
+          <StatCard value={metrics?.total_wilayah_kerja ?? null} label="Wilayah Kerja" format="number" />
           <StatCard value={metrics?.area.total_ha ?? null} label="Area Konservasi" format="area" />
           <StatCard value={bio?.tinggi ?? null} label="Bio Kategori Tinggi" format="number" suffix="unit" />
           <StatCard value={metrics?.fauna.total_released ?? null} label="Fauna Released" format="number" />

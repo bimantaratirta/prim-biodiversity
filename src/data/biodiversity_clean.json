@@ -759,7 +759,7 @@
     "location_adjacent": "no",
     "location_overlapped": "no",
     "biodiversity_score": 1.1,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "Mangrove (Rhizophora apicukta, Sonneratia caseolaris, Bruguiera cylindrica, Ceriops tagal, Evicennia alba, Avicennia marina)"
@@ -1014,7 +1014,7 @@
     "location_adjacent": "yes",
     "location_overlapped": "no",
     "biodiversity_score": 1.99,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "1.Api-api (Avicenia sp)\n2.Bakau Merah (Rhizopora apiculata)\n3.Bakau Minyak (Rhizophora mucronata)"
@@ -1252,7 +1252,7 @@
     "location_adjacent": "no",
     "location_overlapped": "no",
     "biodiversity_score": 1.6,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": "1. Surili - VU",
     "fauna_released_count": 0,
     "flora_names": "1. Puspa - N/A\n2. Kibereum - LN\n3. Rasamala - N/A\n4. Kisalam - N/A\n5. Baros/Manglid - N/A"
@@ -1286,7 +1286,7 @@
     "location_adjacent": "no",
     "location_overlapped": "no",
     "biodiversity_score": 1.13,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "1. Johar (Cassia siamea Lamk) - LC\n2. Trembesi (Samanea saman) - LC\n3. Beringin (Ficus benjamina) - NE\n4. Gamal (Gliricidia sepium) - LC\n5. Waru (Hisbicus tiliaceus) - LC\n6. Pohon Saga (Adenanthera povonina) - LC\n7. Kelapa Sawit (Elaeis) - NE\n8. Jarak (Ricinus communis) - NE\n9. Mahoni (S. macrophylla) - VU\n10. Bayur (Pterospermum javanicum) - LC\n11. Sulam (Portulaca grandiflora) - LC\n12. Meranti (Shorea leprosula) - CR\n13. Puspa (Schima wallichii) - CR\n14. Jabon (Anthocephalus cadamba) -"
@@ -2578,7 +2578,7 @@
     "location_adjacent": "yes",
     "location_overlapped": null,
     "biodiversity_score": 1.61,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "1. Api-api (Avicenia sp)\n2. Bakau Minyak (Rhizophora mucronata)\n3. Berembang Laut (Sonneratia alba)\n4. Cingam (Scyphiphora hydrophyllacea)\n5. Nipah (Nypa fruticans)\n6. Pedada (Sonneratia alba)"
@@ -2680,7 +2680,7 @@
     "location_adjacent": "yes",
     "location_overlapped": null,
     "biodiversity_score": 1.29,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": "1. Katak sawah -\n2. Biawak -\n3. Ular sawah -\n4. Perkutut -\n5. Babi hutan -\n6. Monyet -",
     "fauna_released_count": null,
     "flora_names": "1. Jelutung\n2. Karet\n3. Ketapang Talang\n4. Laban\n5. Pule\n6. Mangga\n7. Gelam"
@@ -2697,7 +2697,7 @@
     "location_adjacent": "yes",
     "location_overlapped": null,
     "biodiversity_score": 1.32,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": "Gajah Sumatera (Elephas maximus ssp.sumatranus) - CR",
     "fauna_released_count": null,
     "flora_names": "1. Merawan (Hopea mengerawan) - CR\n1. Merawan (Hopea mengerawan) - CR\n2. Leda/Eucaliptus (Eucalyptus deglupta) - VU\n3. Balau Merah (Shorea balangeran) - VU\n4. Angsana (Pterocarpus indicus) - EN"
@@ -2867,7 +2867,7 @@
     "location_adjacent": null,
     "location_overlapped": "yes",
     "biodiversity_score": 1.77,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": "1. Udang Windu (Penaeus monodon) - NE\n2. Botana ( Acanthurus) - LC\n3. Betok kenari (Amblygliphidodon) - LC\n4. Loloasi (Caesio) - LC\n5. Kepe-kepe (Chaetodon) - LC\n6. Ikan Jae Jae (Chromis) - LC\n7. Ikan Wrasse Pelangi (Coris) - LC\n8. Ikan Keling (Halichoeres) - LC\n9. Ikan Dokter (Labroides) - LC\n10.Ikan sirip pari ( Parapercis) - LC\n11. Ikan Pisang (Pterocaesio) - LC\n12.Ikan Kakatua (Scarus) - LC\n13. Ikan Pasir-pasir (Scolopsis) - LC\n14. Ikan Baronang - (Siganus) - LC\n15.Ikan Karang (Thalassoma) - LC\n16. Ikan Kuniran (Upeneus) - LC\n17. Ikan Bendera (Zanclus) - LC",
     "fauna_released_count": 198,
     "flora_names": "1. Johar (Cassia siamea Lamk) - LC\n2. Trembesi (Samanea saman) - LC\n3. Beringin (Ficus benjamina) - NE\n4. Gamal (Gliricidia sepium) - LC\n5. Waru (Hisbicus tiliaceus) - LC\n6. Pohon Saga (Adenanthera povonina) - LC\n7. Kelapa Sawit (Elaeis) - NE\n8. Jarak (Ricinus communis) - NE\n9. Mahoni (S. macrophylla) - VU\n10. Bayur (Pterospermum javanicum) - LC\n11. Sulam (Portulaca grandiflora) - LC\n12. Meranti (Shorea leprosula) - CR\n13. Puspa (Schima wallichii) - CR\n14. Jabon (Anthocephalus cadamba) - (Belum terdaftar di IUCN)"
@@ -2918,7 +2918,7 @@
     "location_adjacent": "no",
     "location_overlapped": null,
     "biodiversity_score": 1.899,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": "1 . Rusa Sambar (Cervus unicolor) - VU",
     "fauna_released_count": 10,
     "flora_names": "1. Nangkadak (A. heterophyllus x integer) - DD\n2. Akasia (Acacia auriculiformis) - LC\n3. Sri Rezeki (Aglaonema crispum) - DD\n4. Aglonema heng heng (Aglaonema sp) - DD\n5. Sengon (Albizia sp) - LC\n6. Kemiri (Aleurites moluccana) - LC\n7. Keladi Amazon (Alocasia amazonica) - DD\n8. Keladi Tengkorak Kalimantan (Alocasia cuprea) - DD\n9. Keladi White Queen (Alocasia White Queen) - DD\n10. Sirsak (Annona muricata) - LC\n11. Srikaya (Annona squamosa) - LC\n12. Kuping Gajah (Anthurium crystallinum) - DD\n13. Palem Ekor Ikan (Arecaceae Caryota mitis) - LC\n14. Palem (Arecaceae Hyophorbe lagenicaulis) - CR\n15. Sukun (Artocarpus communis) - DD\n16. Cempedak (Artocarpus integer) - LC\n17. Pakcoy (Brassica rapa L) - DD\n18. Bromelia (Bromelia cryptantus Red) - DD\n19. Keladi Red Flash (Caladium red flash - DD\n20. Calathea (Calathea medallion) - DD\n21. Cabai Habanero (Capsicum chinense) - DD\n22. Johar (Casia siamea) - DD\n23. Jengger Ayam (Celosia argentea L) - DD\n24. Cemara Pua Pua (Cemara Pua Pua) - DD\n25. Bintaro (Cerbera manghas) - LC\n26. Palem Komodaria (Chamaedorea elegans) - DD\n27. Seruni (Chrysanthemum Inodoru ) - DD\n28. Jeruk Purut (Citrus hystri ) - LC\n29. Kelapa (Cocos nucifera) - DD\n30. Kelapa Gading (Cocos nucifera L) - DD\n31. Anggrek Hitam (Coelogyne pandurata) - DD\n32. Puring (Croton sp) - EN\n33. Bintang Bumi (Cryptanthus bivittatus) - DD\n34. Temu Ireng (Curcuma aeruginosa Roxb) - DD\n35. Temulawak (Curcuma xanthorriza) - DD\n36. Kunyit Putih (Curcuma zedoaria) - DD\n37. Pinang merah (Cyrthostachis lakka) - DD\n38. Anggrek Dendrobium (Dendrobium macrophyllum) - LC\n39. Kelengkeng (Dimocarpus longan Lou ) - DD\n40. kapur (Dryobalanops aromatica) - VU\n41. Lai (Durio kutejensis) - VU\n42. Durian (Durio zibethinus ) - DD\n43. Stanhopea (Echeveria chihuahuaensis) - DD\n44. Sawit (Elaeis) - LC\n45. Bawang Dayak (Eleutherine palmifolia) - DD\n46. Sawit (Ellais guinnensis) - DD\n47. Ulin (Eusideroxylon zwageri) - VU\n48. Kayu Ara (Ficus adenosperma) - LC\n49. Beringin (Ficus benjamina) - LC\n50. Gamal (Gliricidia sepium) - LC\n51. Anggrek tebu (Grammatophyllum speciosum Blume) - DD\n52. Kaktus Gymno Hijau (Gymnocalycium Damsii) - DD\n53. Palem Bor (H. lagenicaulis) - DD\n54. Tabebuya (Handroanthus chrysotrichus - DD\n55. Karet (Hevea braciliensis) - DD\n56. Kaktus Huernia (Huernia zebrina) - DD\n57. Gayam (Inocarpus fagifer) - LC\n58. Melati Jakarta (Jasminum elongatum) - DD\n59. Selada (Lactuca sativa) - DD\n60. Langsat Tanjung (Lansium domesticum) - DD\n61. Mangga kasturi (Mangifera casturi) - EW\n62. Mangga (Mangifera sp) - DD\n63. Pohon Tanjung (Mimusops elengi) - LC\n64. Monstera Borsigiana (Monstera Borsigiana) - DD\n65. Mengkudu (Morinda citrifolia, L) - DD\n66. Nusa Indah Putih (Mussaenda pubescens) - DD\n67. Kantong Semar Rawa (Nepenthes mirabilis) - LC\n68. Rambutan (Nephelium lappaceum) - LC\n69. Kemangi (Ocimum africanum) - DD\n70. Kumis Kucing (Orthosiphon aristatus) - DD\n71. Daun Pandan (Pandanus amaryllifolius) - DD\n72. Sengon (Paraserianthes falcataria) - DD\n73. Petai (Parkia speciosa) - LC\n74. Sungkai (Peronema canescens) - LC\n75. Angsana (Peterocarpus sp) - DD\n76. Anggrek Bulan (Phalaenopsis amabilis) - DD\n77. Philo Jari (Philodendron selloum) - DD\n78. Pinus (Pinus merkusii) - VU\n79. Sirih Hijau (Piper betle L) - DD\n80. Sirih Merah (Piper crocatum) - DD\n81. Miana (Plectranthus scutellarioides) - DD\n82. Beluntas (Pluchea indica) - DD\n83. Glodokan Tiang (Polyalthia longifolia) - LC\n84. Sancang (Premna microphylla) - LC\n85. Jambu Biji (Psidium guajava) - LC\n86. Angsana ( Pterocarpus indicus) - EN\n87. Mawar Putih (Rosa alba L) - DD\n88. Terembesi (Samanea saman) - LC\n89. Terembesi (Samanea saman) - LC\n90. Terembesi (Samania saman) - LC\n91. Sentul (Sandoricum koetjape) - VU\n92. Lidah Mertua (Sansevieria trifasciata lauretii) - DD\n93. Johar (Senna siamea) - LC\n94. Meranti (Shorea leprosula) - NT\n95. Kayu meranti (Shorea macrophylla) - LC\n96. Anggrek Sendok (Spathoglottis zurea) - DD\n97. Pohon Hujan (Spathoidea campanulata) - DD\n98. Mahoni (Swietenia mahagoni) - NT\n99. Pohon Loba (Symplocos sp) - DD\n100. Jambu Air (Syzygium aqueum) - LC\n101. Jambu Air (Syzygium aqueum) - LC\n102. Ketapang (Terminalia catappa) - LC\n103. Keladi Tikus (Typhonium flagelliforme) - LC\n104. Laban (Vitex pinnata) - LC\n105. Palem Ekor Tupai (Wodyetia bifurcata) - DD\n106. Jahe (Zingiber officinale) - DD"
@@ -3003,7 +3003,7 @@
     "location_adjacent": "no",
     "location_overlapped": null,
     "biodiversity_score": 1.74,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "1. Matoa (Pometia pinnata) - LC\n2. Beringin (Ficus benjamina) - LC\n3. Trembesi (Samanea saman) - LC\n4. Sawo (Manikara zapota) - LC\n5. Mangga (Mangifera indica) - DD\n6. Kelengkeng (Dimocarpus longan) - DD\n7. Cemara Laut (Casuarina equisetifolia) - LC\n8. Kelapa (Cocos mucifera) - LC\n9. Jambu Kristal (Psidium guajava) - LC\n10. Sirsak (Annona muricata) - LC\n11. Jati (Tectona grandis) - EN\n12. Nangka (Artocarpus heterophyllus) - LC\n13. Ketapang (Terminalia catappa) - LC"
@@ -3037,7 +3037,7 @@
     "location_adjacent": "no",
     "location_overlapped": null,
     "biodiversity_score": 1.1,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "1. Alpukat (Persea americana) - LC\n2. Jambu Deli Madu (Syzygium aqueum) - LC"
@@ -3054,7 +3054,7 @@
     "location_adjacent": "no",
     "location_overlapped": null,
     "biodiversity_score": 1.507,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": "1. Belalang Tanduk Pendek (Caryanda sparia) - LC\n2. Lebah Kayu Tropis (Xylocopa latipes) - LC\n3. Wereng Daun (Bothrogonia addita) - LC\n4. Semut Gila Kuning (Anoplolepis gracilis) - LC\n5. Semut Rangrang (Oecophylla smaragdina) - LC\n6. Gelombang Krim (Scopula perlata) - LC\n7. Flat Salju Biasa (Tagiades japetus) - LC\n8. Kupu-kupu Ercis Pelupa (Catochrysops strabo) - LC\n9. Kupu-kupu Cerulean Gelap (Jamides bochus) - LC\n10. Kupu-kupu Rumput Biru Kecil (Zizina otis) - LC\n11. Kupu-kupu Sayap Elips Biru (Zizula hylax) - LC\n12. Kupu-kupu Merak Coklat (Junonia hedonia) - LC\n13. Semut Kayap (Paederus sp.) - LC\n14. Elang-Ular Bido (Spilornis cheela) - LC\n15. Walet Linchi (Collocalia linchi) - LC\n16. Perkutut Jawa (Geopelia striata) - LC\n17. Burung Cabai Jawa (Dicaeum trochileum) - LC\n18. Burung Madu Sriganti (Cinnyris jugularis) - LC\n19. Cucak Kutilang (Pycnonotus aurigaster) - LC\n20. Katak Tegalan (Fejervarya limnocharis) - LC\n21. Kodok Sawah (Fejervarya cancrivora) - LC\n22. Percil Jawa (Microhyla achatina) - LC\n23. Codot Krawar (Cynopterus brachyotis) - LC",
     "fauna_released_count": null,
     "flora_names": null
@@ -3139,7 +3139,7 @@
     "location_adjacent": "no",
     "location_overlapped": null,
     "biodiversity_score": 1.56,
-    "biodiversity_category": "Rendah",
+    "biodiversity_category": "Sedang",
     "fauna_names": null,
     "fauna_released_count": null,
     "flora_names": "1. Mangga (Mangifera indica) - LC\n2. Jambu Kristal (Syzygium aqueum) - LC\n3. Nangka Thailand (Artocarpus heterophyllus) - LC\n4. Sirsak Madu (Annona muricata L) - LC\n5. Alpukat (Persea americana) - LC"

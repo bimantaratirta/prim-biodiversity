@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-  LabelList,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
 import { formatNumber } from "@/lib/utils";
 
 interface HorizontalBarProps {
@@ -23,17 +14,10 @@ export default function HorizontalBar({ data, total }: HorizontalBarProps) {
       <ResponsiveContainer width="100%" height={data.length * 60 + 40}>
         <BarChart data={data} layout="vertical" margin={{ left: 20, right: 80 }}>
           <XAxis type="number" hide />
-          <YAxis
-            type="category"
-            dataKey="name"
-            width={120}
-            tick={{ fontSize: 13 }}
-          />
+          <YAxis type="category" dataKey="name" width={120} tick={{ fontSize: 13 }} />
           <Tooltip
-            formatter={(value: number) => [
-              `${formatNumber(value, 2)} ha`,
-              "Luasan",
-            ]}
+            cursor={{ fill: "rgba(59, 130, 246, 0.08)" }}
+            formatter={(value: number) => [`${formatNumber(value, 2)} ha`, "Luasan"]}
           />
           <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={28}>
             {data.map((entry, i) => (
@@ -51,9 +35,7 @@ export default function HorizontalBar({ data, total }: HorizontalBarProps) {
       {total != null && (
         <div className="mt-2 flex items-center justify-end gap-2 border-t border-gray-200 pt-2">
           <span className="text-sm font-medium text-gray-600">Total:</span>
-          <span className="text-sm font-bold text-gray-900">
-            {formatNumber(total, 2)} ha
-          </span>
+          <span className="text-sm font-bold text-gray-900">{formatNumber(total, 2)} ha</span>
         </div>
       )}
     </div>

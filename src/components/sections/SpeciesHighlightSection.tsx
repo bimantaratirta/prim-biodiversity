@@ -9,13 +9,22 @@ import StatCard from "@/components/ui/StatCard";
 import { summary, records } from "@/data";
 import { parseSpeciesLine, formatNumber } from "@/lib/utils";
 
-const FLAGSHIP_SPECIES = [
+const FLAGSHIP_FAUNA = [
   { commonName: "Gajah Sumatera", latinName: "Elephas maximus sumatranus", iucnStatus: "CR" },
   { commonName: "Harimau Sumatera", latinName: "Panthera tigris sumatrae", iucnStatus: "EN" },
   { commonName: "Tuntong Laut", latinName: "Batagur borneoensis", iucnStatus: "CR" },
   { commonName: "Elang Jawa", latinName: "Nisaetus bartelsi", iucnStatus: "EN" },
   { commonName: "Owa Ungko", latinName: "Hylobates agilis", iucnStatus: "EN" },
   { commonName: "Orangutan Kalimantan", latinName: "Pongo pygmaeus", iucnStatus: "CR" },
+];
+
+const FLAGSHIP_FLORA = [
+  { commonName: "Gaharu", latinName: "Aquilaria malaccensis", iucnStatus: "CR" },
+  { commonName: "Meranti Merah", latinName: "Shorea johorensis", iucnStatus: "CR" },
+  { commonName: "Ulin", latinName: "Eusideroxylon zwageri", iucnStatus: "VU" },
+  { commonName: "Kantong Semar Sumatera", latinName: "Nepenthes sumatrana", iucnStatus: "CR" },
+  { commonName: "Jati", latinName: "Tectona grandis", iucnStatus: "EN" },
+  { commonName: "Anggrek Bulan Sumatra", latinName: "Phalaenopsis sumatrana", iucnStatus: "VU" },
 ];
 
 export default function SpeciesHighlightSection() {
@@ -36,6 +45,36 @@ export default function SpeciesHighlightSection() {
     return counts;
   }, []);
 
+  /* ── Flora statistics from raw records ── */
+  const floraStats = useMemo(() => {
+    const byYear: Record<string, { unitsWithFlora: number; uniqueSpecies: Set<string> }> = {};
+    for (const rec of records) {
+      const yr = String(rec.tahun);
+      if (!byYear[yr]) byYear[yr] = { unitsWithFlora: 0, uniqueSpecies: new Set() };
+
+      if (rec.flora_names && rec.flora_names !== "0") {
+        byYear[yr].unitsWithFlora += 1;
+        for (const line of rec.flora_names.split("\n")) {
+          const parsed = parseSpeciesLine(line.trim());
+          if (parsed) {
+            const key = parsed.latinName?.toLowerCase() || parsed.commonName.toLowerCase();
+            byYear[yr].uniqueSpecies.add(key);
+          }
+        }
+      }
+    }
+    return {
+      "2023": {
+        unitsWithFlora: byYear["2023"]?.unitsWithFlora ?? 0,
+        uniqueSpecies: byYear["2023"]?.uniqueSpecies.size ?? 0,
+      },
+      "2024": {
+        unitsWithFlora: byYear["2024"]?.unitsWithFlora ?? 0,
+        uniqueSpecies: byYear["2024"]?.uniqueSpecies.size ?? 0,
+      },
+    };
+  }, []);
+
   const fauna2024 = summary.by_year?.["2024"]?.fauna;
   const fauna2023 = summary.by_year?.["2023"]?.fauna;
 
@@ -54,62 +93,120 @@ export default function SpeciesHighlightSection() {
         </NarrativeBlock>
       </div>
 
-      {/* Flagship species cards */}
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {FLAGSHIP_SPECIES.map((sp) => (
-          <SpeciesCard key={sp.commonName} commonName={sp.commonName} latinName={sp.latinName} iucnStatus={sp.iucnStatus} />
-        ))}
-      </div>
-
-      {/* IUCN Distribution */}
+      {/* ═══════════════ FAUNA SUBSECTION ═══════════════ */}
       <div className="mt-10">
-        <h3 className="mb-4 text-lg font-semibold text-gray-900">Distribusi Status IUCN</h3>
-        <IUCNDistributionBar data={iucnCounts} />
-      </div>
+        <h3 className="mb-5 flex items-center gap-2 text-xl font-bold text-gray-900">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-50 text-base">🐾</span>
+          Fauna Unggulan
+        </h3>
 
-      {/* Fauna Released Stats */}
-      <div className="mt-10 grid gap-8 lg:grid-cols-2">
-        <div>
-          <StatCard
-            value={fauna2024?.total_released ?? null}
-            label="Individu fauna dibebasliarkan ke habitat aslinya (2024)"
-            format="number"
-            previousValue={fauna2023?.total_released ?? null}
-            className="!shadow-md"
-          />
-          <p className="mt-3 text-sm text-gray-500">
-            Meningkat dari {formatNumber(fauna2023?.total_released ?? 0)} di tahun 2023
-          </p>
+        {/* Flagship fauna cards */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {FLAGSHIP_FAUNA.map((sp) => (
+            <SpeciesCard
+              key={sp.commonName}
+              commonName={sp.commonName}
+              latinName={sp.latinName}
+              iucnStatus={sp.iucnStatus}
+            />
+          ))}
         </div>
 
-        <div className="card">
-          <h3 className="mb-3 text-sm font-semibold text-gray-700">Ringkasan Fauna per Tahun</h3>
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-600">Unit dengan rilis (2023)</span>
-            <span className="font-semibold">{fauna2023?.units_with_releases ?? 0}</span>
+        {/* Fauna Released Stats */}
+        <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          <div>
+            <StatCard
+              value={fauna2024?.total_released ?? null}
+              label="Individu fauna dibebasliarkan ke habitat aslinya (2024)"
+              format="number"
+              previousValue={fauna2023?.total_released ?? null}
+              className="!shadow-md"
+            />
+            <p className="mt-3 text-sm text-gray-500">
+              Meningkat dari {formatNumber(fauna2023?.total_released ?? 0)} di tahun 2023
+            </p>
           </div>
-          <div className="space-y-3">
+
+          <div className="card">
+            <h3 className="mb-3 text-sm font-semibold text-gray-700">Ringkasan Fauna per Tahun</h3>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-600">Unit dengan rilis (2024)</span>
-              <span className="font-semibold">{fauna2024?.units_with_releases ?? 0}</span>
+              <span className="text-sm text-gray-600">Unit dengan rilis (2023)</span>
+              <span className="font-semibold">{fauna2023?.units_with_releases ?? 0}</span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-600">Spesies unik teridentifikasi (2024)</span>
-              <span className="font-semibold">{fauna2024?.unique_species_approx ?? 0}</span>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Unit dengan rilis (2024)</span>
+                <span className="font-semibold">{fauna2024?.units_with_releases ?? 0}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Spesies unik teridentifikasi (2024)</span>
+                <span className="font-semibold">{fauna2024?.unique_species_approx ?? 0}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Flora note */}
-      <div className="mt-8">
-        <NarrativeBlock variant="callout">
+      {/* ═══════════════ FLORA SUBSECTION ═══════════════ */}
+      <div className="mt-14">
+        <h3 className="mb-5 flex items-center gap-2 text-xl font-bold text-gray-900">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-base">🌿</span>
+          Flora Unggulan
+        </h3>
+
+        <NarrativeBlock>
           <p>
-            Program konservasi flora meliputi penanaman dan pemeliharaan berbagai spesies, termasuk spesies langka seperti{" "}
-            <strong>Gaharu</strong> (<em>Aquilaria malaccensis</em> — CR), <strong>Padma Raksasa</strong> (
-            <em>Rafflesia arnoldii</em>), dan <strong>Meranti Merah</strong> (<em>Shorea johorensis</em> — CR).
+            Program konservasi flora meliputi penanaman, pemeliharaan, dan identifikasi berbagai spesies tumbuhan, termasuk
+            spesies langka yang masuk dalam <strong>IUCN Red List</strong>. Identifikasi flora dilakukan di wilayah operasi
+            untuk menjaga keberagaman ekosistem.
           </p>
         </NarrativeBlock>
+
+        {/* Flagship flora cards */}
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {FLAGSHIP_FLORA.map((sp) => (
+            <SpeciesCard
+              key={sp.commonName}
+              commonName={sp.commonName}
+              latinName={sp.latinName}
+              iucnStatus={sp.iucnStatus}
+            />
+          ))}
+        </div>
+
+        {/* Flora Stats */}
+        <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          <StatCard
+            value={floraStats["2024"].unitsWithFlora}
+            label="Unit operasi yang melaporkan data flora (2024)"
+            format="number"
+            previousValue={floraStats["2023"].unitsWithFlora}
+            className="!shadow-md"
+          />
+          <div className="card">
+            <h3 className="mb-3 text-sm font-semibold text-gray-700">Ringkasan Flora per Tahun</h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Unit dengan data flora (2023)</span>
+                <span className="font-semibold">{floraStats["2023"].unitsWithFlora}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Unit dengan data flora (2024)</span>
+                <span className="font-semibold">{floraStats["2024"].unitsWithFlora}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Jenis flora unik teridentifikasi (2024)</span>
+                <span className="font-semibold">{floraStats["2024"].uniqueSpecies}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════════════ IUCN DISTRIBUTION (Combined) ═══════════════ */}
+      <div className="mt-14">
+        <h3 className="mb-4 text-lg font-semibold text-gray-900">Distribusi Status IUCN (Fauna &amp; Flora)</h3>
+        <IUCNDistributionBar data={iucnCounts} />
       </div>
     </SectionWrapper>
   );

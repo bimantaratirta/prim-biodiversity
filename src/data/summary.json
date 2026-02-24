@@ -22,7 +22,8 @@
   },
   "by_year": {
     "2023": {
-      "total_units": 91,
+      "total_unit_operasi": 63,
+      "total_wilayah_kerja": 91,
       "units_with_data": 55,
       "area": {
         "total_offsite_ha": null,
@@ -40,8 +41,8 @@
         "both_yes": 0
       },
       "biodiversity": {
-        "rendah": 5,
-        "sedang": 10,
+        "rendah": 1,
+        "sedang": 14,
         "tinggi": 25,
         "null": 51,
         "max_score": 4.7,
@@ -54,7 +55,8 @@
       }
     },
     "2024": {
-      "total_units": 107,
+      "total_unit_operasi": 63,
+      "total_wilayah_kerja": 107,
       "units_with_data": 76,
       "area": {
         "total_offsite_ha": 93316.69,
@@ -72,8 +74,8 @@
         "both_yes": 4
       },
       "biodiversity": {
-        "rendah": 18,
-        "sedang": 14,
+        "rendah": 9,
+        "sedang": 23,
         "tinggi": 26,
         "null": 49,
         "max_score": 22.65,
@@ -89,7 +91,8 @@
   "by_subholding": {
     "SH Downstream": {
       "2023": {
-        "total_units": 28,
+        "total_unit_operasi": 28,
+        "total_wilayah_kerja": 28,
         "units_with_data": 7,
         "area": {
           "total_offsite_ha": null,
@@ -121,7 +124,8 @@
         }
       },
       "2024": {
-        "total_units": 28,
+        "total_unit_operasi": 28,
+        "total_wilayah_kerja": 28,
         "units_with_data": 17,
         "area": {
           "total_offsite_ha": 8701.03,
@@ -155,7 +159,8 @@
     },
     "SH Gas": {
       "2023": {
-        "total_units": 20,
+        "total_unit_operasi": 20,
+        "total_wilayah_kerja": 20,
         "units_with_data": 8,
         "area": {
           "total_offsite_ha": null,
@@ -173,8 +178,8 @@
           "both_yes": 0
         },
         "biodiversity": {
-          "rendah": 2,
-          "sedang": 1,
+          "rendah": 1,
+          "sedang": 2,
           "tinggi": 1,
           "null": 16,
           "max_score": 3.57,
@@ -187,7 +192,8 @@
         }
       },
       "2024": {
-        "total_units": 20,
+        "total_unit_operasi": 20,
+        "total_wilayah_kerja": 20,
         "units_with_data": 0,
         "area": {
           "total_offsite_ha": null,
@@ -221,7 +227,8 @@
     },
     "SH PNRE": {
       "2023": {
-        "total_units": 7,
+        "total_unit_operasi": 7,
+        "total_wilayah_kerja": 7,
         "units_with_data": 6,
         "area": {
           "total_offsite_ha": null,
@@ -253,7 +260,8 @@
         }
       },
       "2024": {
-        "total_units": 7,
+        "total_unit_operasi": 7,
+        "total_wilayah_kerja": 7,
         "units_with_data": 7,
         "area": {
           "total_offsite_ha": 1.92,
@@ -287,7 +295,8 @@
     },
     "SH Upstream": {
       "2023": {
-        "total_units": 36,
+        "total_unit_operasi": 8,
+        "total_wilayah_kerja": 36,
         "units_with_data": 34,
         "area": {
           "total_offsite_ha": null,
@@ -305,8 +314,8 @@
           "both_yes": 0
         },
         "biodiversity": {
-          "rendah": 3,
-          "sedang": 5,
+          "rendah": 0,
+          "sedang": 8,
           "tinggi": 16,
           "null": 12,
           "max_score": 4.7,
@@ -319,7 +328,8 @@
         }
       },
       "2024": {
-        "total_units": 52,
+        "total_unit_operasi": 8,
+        "total_wilayah_kerja": 52,
         "units_with_data": 52,
         "area": {
           "total_offsite_ha": 84613.74,
@@ -337,8 +347,8 @@
           "both_yes": 0
         },
         "biodiversity": {
-          "rendah": 17,
-          "sedang": 8,
+          "rendah": 8,
+          "sedang": 17,
           "tinggi": 19,
           "null": 8,
           "max_score": 22.65,
@@ -355,7 +365,8 @@
   "by_subholding_original": {
     "SH C&T": {
       "2023": {
-        "total_units": 12,
+        "total_unit_operasi": 12,
+        "total_wilayah_kerja": 12,
         "units_with_data": 0,
         "area": {
           "total_offsite_ha": null,
@@ -387,7 +398,8 @@
         }
       },
       "2024": {
-        "total_units": 12,
+        "total_unit_operasi": 12,
+        "total_wilayah_kerja": 12,
         "units_with_data": 7,
         "area": {
           "total_offsite_ha": 4122.66,
@@ -421,7 +433,8 @@
     },
     "SH Gas": {
       "2023": {
-        "total_units": 20,
+        "total_unit_operasi": 20,
+        "total_wilayah_kerja": 20,
         "units_with_data": 8,
         "area": {
           "total_offsite_ha": null,
@@ -439,8 +452,8 @@
           "both_yes": 0
         },
         "biodiversity": {
-          "rendah": 2,
-          "sedang": 1,
+          "rendah": 1,
+          "sedang": 2,
           "tinggi": 1,
           "null": 16,
           "max_score": 3.57,
@@ -453,7 +466,8 @@
         }
       },
       "2024": {
-        "total_units": 20,
+        "total_unit_operasi": 20,
+        "total_wilayah_kerja": 20,
         "units_with_data": 0,
         "area": {
           "total_offsite_ha": null,
@@ -487,7 +501,8 @@
     },
     "SH IML": {
       "2023": {
-        "total_units": 3,
+        "total_unit_operasi": 3,
+        "total_wilayah_kerja": 3,
         "units_with_data": 0,
         "area": {
           "total_offsite_ha": null,
@@ -519,7 +534,8 @@
         }
       },
       "2024": {
-        "total_units": 3,
+        "total_unit_operasi": 3,
+        "total_wilayah_kerja": 3,
         "units_with_data": 3,
         "area": {
           "total_offsite_ha": null,
@@ -553,7 +569,8 @@
     },
     "SH PNRE": {
       "2023": {
-        "total_units": 7,
+        "total_unit_operasi": 7,
+        "total_wilayah_kerja": 7,
         "units_with_data": 6,
         "area": {
           "total_offsite_ha": null,
@@ -585,7 +602,8 @@
         }
       },
       "2024": {
-        "total_units": 7,
+        "total_unit_operasi": 7,
+        "total_wilayah_kerja": 7,
         "units_with_data": 7,
         "area": {
           "total_offsite_ha": 1.92,
@@ -619,7 +637,8 @@
     },
     "SH R&P": {
       "2023": {
-        "total_units": 13,
+        "total_unit_operasi": 13,
+        "total_wilayah_kerja": 13,
         "units_with_data": 7,
         "area": {
           "total_offsite_ha": null,
@@ -651,7 +670,8 @@
         }
       },
       "2024": {
-        "total_units": 13,
+        "total_unit_operasi": 13,
+        "total_wilayah_kerja": 13,
         "units_with_data": 7,
         "area": {
           "total_offsite_ha": 4578.37,
@@ -685,7 +705,8 @@
     },
     "SH Upstream": {
       "2023": {
-        "total_units": 36,
+        "total_unit_operasi": 8,
+        "total_wilayah_kerja": 36,
         "units_with_data": 34,
         "area": {
           "total_offsite_ha": null,
@@ -703,8 +724,8 @@
           "both_yes": 0
         },
         "biodiversity": {
-          "rendah": 3,
-          "sedang": 5,
+          "rendah": 0,
+          "sedang": 8,
           "tinggi": 16,
           "null": 12,
           "max_score": 4.7,
@@ -717,7 +738,8 @@
         }
       },
       "2024": {
-        "total_units": 52,
+        "total_unit_operasi": 8,
+        "total_wilayah_kerja": 52,
         "units_with_data": 52,
         "area": {
           "total_offsite_ha": 84613.74,
@@ -735,8 +757,8 @@
           "both_yes": 0
         },
         "biodiversity": {
-          "rendah": 17,
-          "sedang": 8,
+          "rendah": 8,
+          "sedang": 17,
           "tinggi": 19,
           "null": 8,
           "max_score": 22.65,
