@@ -139,7 +139,7 @@ export default function SpeciesHighlightSection() {
                 <span className="font-semibold">{fauna2024?.units_with_releases ?? 0}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Spesies unik teridentifikasi (2024)</span>
+                <span className="text-sm text-gray-600">Spesies fauna teridentifikasi (2024)</span>
                 <span className="font-semibold">{fauna2024?.unique_species_approx ?? 0}</span>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function SpeciesHighlightSection() {
                 <span className="font-semibold">{floraStats["2024"].unitsWithFlora}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Jenis flora unik teridentifikasi (2024)</span>
+                <span className="text-sm text-gray-600">Spesies flora teridentifikasi (2024)</span>
                 <span className="font-semibold">{floraStats["2024"].uniqueSpecies}</span>
               </div>
             </div>
